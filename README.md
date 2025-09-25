@@ -2,14 +2,16 @@
 
 # Introduction
 
-This repository provides a set of functions to optimize and visualize the assembly planning of prefabricated rectangular modules onto exterior building walls. The methodology involves three main steps: (i) automated facade boundary detection; (ii) automated rectangular partitioning of facade regions; and (iii) automated collaborative multi-robot assembly planning of the prefabricated modules. The methodology was applied to the point cloud of an existing building acquired from OpenHeritage database. The building was chosen since it resembles common buildings that may require facade installation (e.g., architectural facade attachement/renovation in existing buildings, prefabricated facade installation in new projects, complete removal and energy retrofitting in aging buildings) with a complex boundary geometry. The following figure shows the stages of the processing (1) point cloud planar surface detection; (2) plane boundary detection and straightening/unforlding of the facade planes onto one plane to facilitate planning; (3) dividing the boundary region into rectangles to maximize coverage and minimize number of rectangles; and (4) planning the schedule optimized flight-path and sequencing of multiple robots/drones (in this example 5) to install all modules.
+This repository provides a set of functions to optimize and visualize the assembly planning of prefabricated rectangular modules onto exterior building walls using robot drones. This planning framework can expedite not only the approval stage for such projects, but also the assembly stage of the project. The automatic planning framework can also serve as a basis to aid urban planners in renovation projects to calculate possible energy and CO2 reductions by adopting such solutions at scale. The methodology can also be extended to planning for general façade panel installation (i.e., architectural façade panels). Furthermore, the methodology can be applied to plan the installation sequence and work assignment of prefabricated elements to other robotic machinery, such as tower cranes, in building construction projects by adopting the same principles (but) in the horizontal floor planes instead of the vertical façade plane. Finally, the proposed multi-robot collaborative installation can be applied to coordinate the best renovation and rehabilitation plan to remedy façade damages, which impose problems in structural vulnerability, or architectural aesthetics. The latter is advantageous for efficient preservation and conservation of heritage buildings.
+
+The methodology involves three main steps: (i) automated facade boundary detection; (ii) automated rectangular partitioning of facade regions; and (iii) automated collaborative multi-robot assembly planning of the prefabricated modules. The methodology was applied to the point cloud of an existing building acquired from OpenHeritage database. The building was chosen since it resembles common buildings that may require facade installation (e.g., architectural facade attachment/renovation in existing buildings, prefabricated facade installation in new projects, complete removal and energy retrofitting in aging buildings) with a complex boundary geometry. The following figure shows the stages of the processing (1) point cloud planar surface detection; (2) plane boundary detection and straightening/unfolding of the facade planes onto one plane to facilitate planning; (3) dividing the boundary region into rectangles to maximize coverage and minimize number of rectangles; and (4) planning the schedule optimized flight-path and sequencing of multiple robots/drones (in this example 5) to install all modules.
 
 ![Picture 1](https://github.com/user-attachments/assets/32950321-b8ba-475d-a419-8504424d6fb7)
 
 
 # Methodology
 
-In this study, the algorithm incolved three stages. Stage 2: Rectangular Modularization and Stage 3: Multi-robot Assembly Planning were formulated as mixed integer linear programming (MILP). More specifically, Stage 2 was formulated as a lexicographic optimization to find the best rectangular sub-division that maximizes surface coverage and minimizes number of rectangular modules.
+In this study, the algorithm involved three stages. Stage 2: Rectangular Modularization and Stage 3: Multi-robot Assembly Planning were formulated as mixed integer linear programming (MILP). More specifically, Stage 2 was formulated as a lexicographic optimization to find the best rectangular sub-division that maximizes surface coverage and minimizes number of rectangular modules.
 
 Stage 3 involved five variations of the multiple asymmetric traveling salesman problem (m-ATSP) as follows:
 1. Variant 1: minimizing makespan with flexible sources and no connectivity constraint
@@ -32,7 +34,7 @@ The following image shows an example of the results of the optimal multi-robot c
 
 As part of this Repository, three folders are provided:
 
-1- Input, which is a the segmented point cloud into major planar surfaces, representing the exterior walls of the building.
+1- Input, which is a point cloud of major planar surfaces of the exterior walls of the building, decomposed into 19 files of less than 25MB for upload in GitHub.
 
 2- Dependent Functions, which includes the new functions called in the main script.
 
