@@ -31,18 +31,18 @@ opts.useGurobi = true; % set true if you have Gurobi installed
 resN = solve_matsp_minimal(data, opts);
 %% Connectivity Constraint with Source Change within Sub-routes
 % Minimizing Maximum Cost
-resM = solve_minmax_connected_sources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',150);
+resM = solve_minmax_connected_sources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',200);
 
 % Minimizing Sum of Absolute Deviation
-resMB = solve_balanced_connected_sources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',150);
+resMB = solve_balanced_connected_sources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',200);
 
 %% Connectivity Constraint with Single Source within Sub-routes
 
 % Minimizing Maximum Cost
-resMS = solve_minmax_connected_fixedsources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',150);
+resMS = solve_minmax_connected_fixedsources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',200);
 
 % Minimizing Sum of Absolute Deviation
-resMSB = solve_balanced_connected_fixedsources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',150);
+resMSB = solve_balanced_connected_fixedsources(Rb.tau_go, Rb.tau_back, Rb.s, Rb.Q, Rb.m,'TimeLimit',200);
 
 %% Visualization
 optsVisual = struct('SXY', Rb.X_k, 'DXY', Rb.X_n, ...
@@ -59,13 +59,6 @@ vizM = parse_solution_viz_new(resM, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, op
 vizMB = parse_solution_viz_new(resMB, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual); optsVisual.FigTitle='Minimizing Makespan – Fixed Source';
 vizMS = parse_solution_viz_new(resMS, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual); optsVisual.FigTitle='Minimizing Sum of Absolute Deviation – Fixed Source';
 vizMSB = parse_solution_viz_new(resMSB, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual);
-
-optsVisual.FigTitle='Minimizing Makespan – Flexible Source';
-vizMh = parse_solution_viz_hor(resM, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual); optsVisual.FigTitle='Minimizing Sum of Absolute Deviation – Flexible Source';
-vizMBh = parse_solution_viz_hor(resMB, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual); optsVisual.FigTitle='Minimizing Makespan – Flexible Source – No Connectivity';
-vizNh = parse_solution_viz_hor(resN, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual); optsVisual.FigTitle='Minimizing Maximum Duration – Fixed Source';
-vizMSh = parse_solution_viz_hor(resMS, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual); optsVisual.FigTitle='Minimizing Sum of Absolute Deviation – Fixed Source';
-vizMSBh = parse_solution_viz_hor(resMSB, Rb.tau_go, Rb.tau_back, Rb.s, Rb.m, Rb.E, optsVisual);
 
 %% Result Table
 Rb.C=Rb.tau_go'+Rb.s+Rb.tau_back;
