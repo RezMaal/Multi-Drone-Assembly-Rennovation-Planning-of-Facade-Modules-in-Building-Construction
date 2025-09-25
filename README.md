@@ -1,4 +1,4 @@
-# Multi-Robot Assembly Planning of Facade Modules in Building Construction
+# Multi-Drone Assembly Planning of Facade Rennovation and Module Installation in Building Construction
 
 # Introduction
 
@@ -42,6 +42,10 @@ To successfully run the code, all items must be accessible to Matlab at the time
 
 Disclaimer: The backbone of the code was generated with the help of ChatGPT 5.0 (Thinking) and debugged/thoroughly reviewed and tested by the author. While it works, there is no guarantee of efficiency or fast convergence of the algorithms (particularly the MILP solutions in Stage 3).
 
+# Citation
+The study is published in the proceedings of the Smart and Sustainable Built Environment (SASBE), where the algorithms and background are explained in more detail. You may cite the study using the following information:
+
+R. Maalek (2025). Multi-Drone Collaborative Planning for Prefabricated Façade Installation on Heritage Buildings. Lecture Notes in Civil Engineering: Proceedings of the Smart and Sustainable Built Environment (SASBE), Lille, France, November 2025.
 
 # Acknowledgements
 The author wishes to acknowledge the generous endowment provided by GOLDBECK GmbH to the Karlsruhe Institute of Technology (KIT) for the establishment of the Professorship in Digital Engineering and Construction at the Institute of Technology and Management in Construction (TMB).
