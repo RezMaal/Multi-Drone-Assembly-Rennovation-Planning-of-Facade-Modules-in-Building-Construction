@@ -1,5 +1,5 @@
 P=[];
-for i = 1:20
+for i = 1:19
     P=[P;readmatrix(sprintf('Pl_%d.txt', i))];    % Extract chunk
 end
 
