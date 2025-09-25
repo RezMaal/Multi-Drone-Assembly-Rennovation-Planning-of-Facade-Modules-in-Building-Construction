@@ -1,4 +1,7 @@
-P = readmatrix('Planes.txt');
+P=[];
+for i = 1:20
+    P=[P;readmatrix(sprintf('Pl_%d.txt', i))];    % Extract chunk
+end
 
 [Rb,Modules,Costs,Outer,Inner,Att,ID_P,ppg] = Modularization_Facade(P,'Regularize',0,'Plot_1',1);
 
