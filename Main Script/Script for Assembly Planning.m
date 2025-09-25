@@ -10,7 +10,7 @@ Rb.k = 3; Rb.m = 5; % Choice of # of sources and # of Robots
 Rb.X_k=[5,-3;37,-6;62,-4]; % Choice of source locations
 
 % Delivery and Assembly Variables 
-ms=1; Ms=10; % standardization of weights
+ms=1; Ms=5; % standardization of weights
 Rb.tau_go = pdist2(Rb.X_k,Rb.X_n,"squaredeuclidean"); ng=min(min(Rb.tau_go)); Ng=max(max(Rb.tau_go));
 Rb.tau_go = (Rb.tau_go-ng)/(Ng-ng)*(Ms-ms)+ms;
 Rb.tau_back = pdist2(Rb.X_n,Rb.X_k); nb=min(min(Rb.tau_back)); Nb=max(max(Rb.tau_back));
