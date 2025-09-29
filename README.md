@@ -1,4 +1,4 @@
-# Multi-Drone Assembly Planning of Facade Rennovation and Module Installation in Building Construction
+# Multi-Drone Assembly Planning of Facade Renovation and Module Installation in Building Construction
 
 # Introduction
 
